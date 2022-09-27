@@ -3,9 +3,9 @@ import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(fib(20));
-        System.out.println(fib(30));
-        System.out.println(fib(40));
+        System.out.println("main() starter!");
+        int sum = tverrsum(7295);
+        System.out.println("main() er ferdig!");
     }
     public static int a(int n)
     {
@@ -33,11 +33,10 @@ public class Main {
     }
     public static int tverrsum(int n)              // n må være >= 0
     {
-        if (n < 10) return n;                        // kun ett siffer
-        while (n>10){
-            n=tverrsumItrativt(n);
-        }
-        return n;
+        System.out.println("tverrsum(" + n + ") starter!");
+        int sum = (n < 10) ? n : tverrsum(n / 10) + (n % 10);
+        System.out.println("tverrsum(" + n + ") er ferdig!");
+        return sum;
     }
     public static int Kvadratt(int n){
         if (n==1){
@@ -78,4 +77,15 @@ public class Main {
         else return fib(n-1) + fib(n-2);   // summen av de to foregående
     }
 
+    public static int euklid(int a, int b) {
+        System.out.println("euklid(" + a + "," + b + ") starter!");
+        if (b == 0) {
+            System.out.println("euklid(" + a + "," + b + ") er ferdig!");
+            return a;
+        }
+        int r = a % b;            // r er resten
+        int k = euklid(b, r);       // rekursivt kall
+        System.out.println("euklid(" + a + "," + b + ") er ferdig!");
+        return k;
+    }
 }
